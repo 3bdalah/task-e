@@ -24,7 +24,7 @@ export class MovieCardComponent {
   }
 
   openDetailes(idMovie: number) {
-    this.router.navigate(['movie', idMovie]);
+    this.router.navigate(['movies/movie/', idMovie]);
     this.moviesData.getfullyDataMovie(idMovie);
 
   }

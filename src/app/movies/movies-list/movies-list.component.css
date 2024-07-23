@@ -1,4 +1,4 @@
-/* Container to hold the cards */
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -28,7 +28,7 @@
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
-    width: 15%; /* Each card takes up roughly a third of the container */
+    width: 15%; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
     margin-bottom: 1rem;
@@ -36,23 +36,20 @@
     
   }
   
-  
   .card-movie:hover {
     transform: translateY(-5px);
   }
   
 
-  
-  /* Responsive adjustments */
   @media (max-width: 768px) {
     .card-movie {
-      width: 48%; /* Two cards per row on tablets */
+      width: 48%; 
     }
   }
   
   @media (max-width: 480px) {
     .card-movie {
-      width: 100%; /* One card per row on mobile */
+      width: 100%; 
     }
   }
   
