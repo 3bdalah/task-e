@@ -1,0 +1,29 @@
+.form-register{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    height: 300px;
+    justify-items: center;
+    margin: 8% auto;
+    background-color: #efefef;
+    align-items: center;
+    border-radius:50px;
+}
+.box-input{
+    margin-top: 20px;
+    height:60px;
+    display: flex;
+    
+    width:80%;
+    flex-direction: column;
+}
+.box-input input{
+    height:100%;
+    width:100%;
+}
+.btn-submit{
+    width: 200px;
+    height:40px;
+    margin-top: 10px;
+}

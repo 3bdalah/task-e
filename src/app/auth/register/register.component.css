@@ -1,0 +1,32 @@
+.form-register{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+    height: 400px;
+    justify-items: center;
+    margin: 8% auto;
+    background-color: #eeeeee;
+    align-items: center;
+}
+.box-input{
+    margin-top: 20px;
+    height:60px;
+    display: flex;
+    
+    width:80%;
+    flex-direction: column;
+}
+.box-input .form-control{
+    height:60px !important;
+    width:100%;
+    padding:10px 5px;
+}
+.btn-submit{
+    width: 200px;
+    height:40px;
+    margin-top: 10px;
+}
+.error{
+    color:red;
+}

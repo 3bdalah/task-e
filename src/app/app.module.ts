@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,11 +10,13 @@ import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 import { RouterModule } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
+    NotFoundComponent
   ],
   imports: [
     AppRoutingModule,
@@ -25,7 +27,10 @@ import { RouterModule } from '@angular/router';
     AuthModule,
     RouterModule
   ],
-  providers: [],
+  providers: [
+    provideClientHydration(),
+    provideHttpClient(),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,10 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './../not-found/not-found.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { FavListComponent } from './fav-list/fav-list.component';
+import { authGuard } from '../../auth.guard';
 
 const routes: Routes = [  { path: '', redirectTo: 'movies', pathMatch: 'full' },
   { path: 'movies',component:MoviesListComponent,title:"list movies"  },
-  { path: 'fav-movies',component:FavListComponent,title:"Fav list"  },
+  { path: 'fav-movies',canActivate:[authGuard], component:FavListComponent,title:"Fav list"  },
   { path: '**', component: NotFoundComponent }];
 
 @NgModule({

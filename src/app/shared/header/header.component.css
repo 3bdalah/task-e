@@ -1,0 +1,31 @@
+/* src/app/components/header/header.component.css */
+nav {
+    background-color: #333;
+    padding: 1em;
+  }
+  
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+  }
+  
+  li {
+    margin: 0 1em;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  a.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .btns-auth{
+  display: flex ;
+  gap:1rem;
+  }

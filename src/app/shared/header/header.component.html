@@ -1,0 +1,14 @@
+<nav>
+    <ul>
+      <li><a routerLink="/movies" routerLinkActive="active">Movies</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="movies/fav-movies" routerLinkActive="active">Favorites</a></li>
+      <li *ngIf="isLoggedIn">
+        <span><a (click)="logout()"  *ngIf="isLoggedIn">Logout</a></span>
+      </li>
+      <li *ngIf="!isLoggedIn" class="btns-auth">
+        <span><a routerLink="/login" routerLinkActive="active"  *ngIf="!isLoggedIn">Login</a></span>
+        <span><a routerLink="/register" routerLinkActive="active"  *ngIf="!isLoggedIn">Register</a></span>
+      </li>
+    </ul>
+  </nav>
+  
