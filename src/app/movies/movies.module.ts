@@ -7,6 +7,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { MovieRoutingModule } from './movies.routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,9 @@ import { MovieRoutingModule } from './movies.routing.module';
     CommonModule,
     // BrowserModule,
     // AppRoutingModule,
-    MovieRoutingModule
+    MovieRoutingModule,
+    FormsModule,
+    
   ],
   exports:[
     MoviesListComponent,FavListComponent,MovieDetailsComponent

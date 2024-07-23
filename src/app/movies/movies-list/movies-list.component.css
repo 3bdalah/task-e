@@ -1,0 +1,58 @@
+/* Container to hold the cards */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+.filter-select {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    height: 30px;
+  }
+  
+  .filter-select label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .filter-select .form-select {
+    width: 200px;
+  }
+
+  .card-movie {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 15%; /* Each card takes up roughly a third of the container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin-bottom: 1rem;
+    height:450px;
+    
+  }
+  
+  
+  .card-movie:hover {
+    transform: translateY(-5px);
+  }
+  
+
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .card-movie {
+      width: 48%; /* Two cards per row on tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-movie {
+      width: 100%; /* One card per row on mobile */
+    }
+  }
+  

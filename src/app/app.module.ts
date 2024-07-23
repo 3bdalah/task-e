@@ -12,6 +12,7 @@ import { MoviesListComponent } from './movies/movies-list/movies-list.component'
 import { RouterModule } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { HeaderComponent } from './shared/header/header.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HeaderComponent } from './shared/header/header.component';
     SharedModule,
     MoviesModule,
     AuthModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(),

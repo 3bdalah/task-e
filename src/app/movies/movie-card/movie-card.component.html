@@ -1,1 +1,17 @@
-<p>movie-card works!</p>
+
+
+<div (click)="openDetailes(movie.id)" style="cursor: pointer;">
+    <!-- <button class="btn btn-secondary btn-open-movie">View</button> -->
+    <div class="box-img">
+      <div class="overlay-movie"></div>
+      <img [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path" alt="Movie Poster">
+    </div>
+  </div>
+  <div class="content-card-movie">
+    <p class="card-title"><span class="title h6">{{ movie.title }}</span>
+      <br /><span>{{ movie.release_date | date }}</span>
+    </p>
+    <p class="card-text">Rating: {{ movie.vote_average }}</p>
+    
+</div>
+<!-- </div> -->
