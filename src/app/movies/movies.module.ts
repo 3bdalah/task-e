@@ -4,6 +4,9 @@ import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { FavListComponent } from './fav-list/fav-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from '../app-routing.module';
+import { MovieRoutingModule } from './movies.routing.module';
 
 
 
@@ -15,7 +18,14 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     MovieDetailsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    // BrowserModule,
+    // AppRoutingModule,
+    MovieRoutingModule
+  ],
+  exports:[
+    MoviesListComponent,FavListComponent,MovieDetailsComponent
   ]
+
 })
 export class MoviesModule { }

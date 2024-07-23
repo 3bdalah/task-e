@@ -7,18 +7,23 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { MoviesModule } from './movies/movies.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
+import { CommonModule } from '@angular/common';
+import { MoviesListComponent } from './movies/movies-list/movies-list.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    CommonModule,
+    BrowserModule,
     SharedModule,
     MoviesModule,
-    AuthModule
+    AuthModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
