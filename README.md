@@ -33,7 +33,8 @@ This project is designed with performance, accessibility, and user experience in
 
 8. **Local Storage**
     - Implemented local storage for saving favorites and comments.
-9. **Account To Test**
+
+## Account To Test
     - email : test@gmail.com
     - password: Test1!11
 
