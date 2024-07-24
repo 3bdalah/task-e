@@ -24,7 +24,7 @@ constructor(
 
 registerForm: FormGroup = new FormGroup(
   {
-    name: new FormControl(null,[Validators.required,Validators.minLength(5)]),
+    name: new FormControl(null,[Validators.required,Validators.minLength(1)]),
     email: new FormControl(null, [Validators.email, Validators.required]),
     password: new FormControl(null, [
       Validators.required,
