@@ -37,16 +37,15 @@
             </p>
             
           </div>
-        <h3>Comments</h3>
+        @if (isLoggedIn) {
+            <h3>Comments</h3>
         <div class="comments" *ngFor="let comment of comments; let i = index">
           <p>{{ comment.text }}</p>
-          <!-- <small>{{ comment.date | date:'short' }}</small> -->
           @if (comment.replies) {
             <div>
                 @for (reply of comment.replies; track $index) {
                     <div class="reply-body">
                       <p style="margin-left: 20px;">{{ reply.text }}</p>
-                      <!-- <span style="margin-left: 20px;">{{ reply.date | date:'short' }}</span> -->
                     </div>
                 }
               </div>
@@ -61,6 +60,7 @@
             <textarea [(ngModel)]="newComment" placeholder="Add a comment" class="input"></textarea>
         <button (click)="addComment()">Add Comment</button>
         </div>
+        }
       </div>
    }
 

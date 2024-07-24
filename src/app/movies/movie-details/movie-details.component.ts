@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/service/auth.service';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Movie } from '../interface/movie';
@@ -17,8 +18,9 @@ export class MovieDetailsComponent {
   comments: any[] = [];
   newComment: string = '';
   newReplies: { [key: number]: string } = {};
-constructor(private router:Router,private  _ActivateRoute:ActivatedRoute,private fullyDataMovie:MoviesService,private favoriteService: FavoritsService,
-  private commentService: CommentsService){}
+  isLoggedIn:boolean=false;
+constructor(private  _ActivateRoute:ActivatedRoute,private fullyDataMovie:MoviesService,private favoriteService: FavoritsService,
+  private commentService: CommentsService,private authService:AuthService){}
   ngOnInit(){
     const id = this._ActivateRoute.snapshot.params['id'];
      this.isLoading = true;
@@ -31,6 +33,18 @@ constructor(private router:Router,private  _ActivateRoute:ActivatedRoute,private
         // console.log("all data about mmovie ", this.movieAllDetailes);
       });
       this.loadComments(id);
+      this.authService.userActive.subscribe((res)=>{
+        if(res=="active"){
+            this.isLoggedIn =true;
+          }else{
+            this.isLoggedIn= false;
+          }
+      });
+  
+  this.authService.getStatusUser().subscribe((status) => {
+    this.isLoggedIn = !!status;
+  });
+
   
   }
 
