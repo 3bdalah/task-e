@@ -25,10 +25,8 @@
 }
 .btn-submit{
     width: 200px;
-    /* height:40px;
-     */
      padding:10px;
-     
+     cursor: pointer;
     margin-top: 10px;
 }
 .error{

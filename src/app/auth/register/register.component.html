@@ -1,51 +1,79 @@
+<form
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit(registerForm)"
+  class="form-register"
+>
+  <h2>Register</h2>
+  <div class="box-input">
+    <label for="name">name:</label>
+    <input
+      formControlName="name"
+      id="name"
+      required
+      aria-label="name"
+      class="form-control"
+      type="text"
+      placeholder="name"
+    />
 
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)" class="form-register">
-    <h2>Register</h2>
-    <div class="box-input">
-      <label for="name">name:</label>
-      <input formControlName="name" class="form-control" type="text" placeholder="name" />
-
-      @if (registerForm.get('name')?.errors && registerForm.get('name')?.touched) {
-        <div>
-          @if (registerForm.get('name')?.getError('required')){
-          <p class="error">name is required</p>
-          } @if (registerForm.get('name')?.getError('minlength')){
-          <p class="error">Min length you must 5 char</p>
-          }
-        </div>
-        }
-      
+    @if (registerForm.get('name')?.errors && registerForm.get('name')?.touched)
+    {
+    <div>
+      @if (registerForm.get('name')?.getError('required')){
+      <p class="error">name is required</p>
+      } @if (registerForm.get('name')?.getError('minlength')){
+      <p class="error">Min length you must 5 char</p>
+      }
     </div>
+    }
+  </div>
 
-    <div class="box-input">
-      <label for="email">Email</label>
-      <input formControlName="email" class="form-control" type="text" placeholder="Email" />
-      @if (registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
-        <div>
-          @if (registerForm.get('email')?.getError('required')){
-          <p class="error">email is required</p>
-          } @if (registerForm.get('email')?.getError('email')){
-          <p class="error">email not valid email</p>
-          }
-        </div>
-        }
+  <div class="box-input">
+    <label for="email">Email</label>
+    <input
+      id="email"
+      required
+      aria-label="email"
+      formControlName="email"
+      class="form-control"
+      type="email"
+      placeholder="Email"
+    />
+    @if (registerForm.get('email')?.errors &&
+    registerForm.get('email')?.touched) {
+    <div>
+      @if (registerForm.get('email')?.getError('required')){
+      <p class="error">email is required</p>
+      } @if (registerForm.get('email')?.getError('email')){
+      <p class="error">email not valid email</p>
+      }
     </div>
-    <div class="box-input">
-  <label for="password">password</label>
-  <input formControlName="password" class="form-control" type="text" placeholder="password" />
+    }
+  </div>
+  <div class="box-input">
+    <label for="password">password</label>
+    <input
+      formControlName="password"
+      id="password"
+      required=""
+      aria-label="password"
+      class="form-control"
+      type="password"
+      placeholder="password"
+    />
 
-
-  @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+    @if (registerForm.get('password')?.errors &&
+    registerForm.get('password')?.touched) {
     <div>
       @if (registerForm.get('password')?.getError('required')){
-      <p class="error">phone is required</p>
+      <p class="error">password is required</p>
       } @if (registerForm.get('password')?.getError('pattern')){
       <p class="error">passord not valid password you must like : Ahmed12!</p>
       }
     </div>
     }
   </div>
-  <button class="btn-submit"   type="submit" [disabled]="registerForm.invalid">
+  <button class="btn-submit" type="submit" [disabled]="registerForm.invalid">
     Register
   </button>
 </form>
