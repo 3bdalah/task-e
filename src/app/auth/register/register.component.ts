@@ -17,17 +17,9 @@ isLoading:boolean= false;
 errorMessage: string = '';
 
 constructor(
-  private fb: FormBuilder,
-  // private afAuth: AngularFireAuth,
   private router: Router,
   private authServ:AuthService
 ) {}
-
-// registerForm:FormGroup = this.fb.group({
-//   email: ['', [Validators.required, Validators.email]],
-//   password: ['', [Validators.required, Validators.minLength(6)]],
-//   confirmPassword: ['', [Validators.required]]
-// }, { validator: this.passwordMatchValidator });
 
 
 registerForm: FormGroup = new FormGroup(
@@ -41,14 +33,7 @@ registerForm: FormGroup = new FormGroup(
    
   },
 );
-ngOnInit(): void {
-}
-
-passwordMatchValidator(form: FormGroup) {
-  // return form.get('password').value === form.get('confirmPassword').value ? null : { mismatch: true };
-}
-
-
+ngOnInit(): void {}
 onSubmit(registerForm: FormGroup) {
   this.isLoading = true;
   if (registerForm.valid) {
