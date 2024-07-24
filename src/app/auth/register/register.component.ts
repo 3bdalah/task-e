@@ -61,8 +61,8 @@ onSubmit(registerForm: FormGroup) {
             this.router.navigate(['auth/login']);
           }
         },(error)=>{
-          if (error.status === 400 && error.error && error.error.message) {
-            alert('failed register password or email or name have error ');
+          if (error.status === 400 || error.error || error.error.message) {
+            alert('failed register password or email or name have error already Exist ');
             this.errorMessage = error.error.message;
             this.isLoading = false;
             // registerForm.reset();
