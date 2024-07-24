@@ -1,14 +1,18 @@
 <nav>
     <ul>
-      <li><a routerLink="/movies" routerLinkActive="active">Movies</a></li>
-      <li *ngIf="isLoggedIn"><a routerLink="movies/fav-movies" routerLinkActive="active">Favorites</a></li>
-      <li *ngIf="isLoggedIn">
-        <span><a (click)="logout()"  *ngIf="isLoggedIn">Logout</a></span>
-      </li>
-      <li *ngIf="!isLoggedIn" class="btns-auth">
-        <span><a routerLink="auth/login" routerLinkActive="active"  *ngIf="!isLoggedIn">Login</a></span>
-        <span><a routerLink="auth/register" routerLinkActive="active"  *ngIf="!isLoggedIn">Register</a></span>
-      </li>
+      <li><a routerLink="/movies" routerLinkActive="active" tabindex="0">Movies</a></li>
+      @if (isLoggedIn) {
+        <li ><a routerLink="movies/fav-movies" routerLinkActive="active" aria-label="favorits" tabindex="0">Favorites</a></li>
+        <li>
+          <span><a (click)="logout()"  *ngIf="isLoggedIn" aria-label="logout" tabindex="0">Logout</a></span>
+        </li>
+      }
+      @if (!isLoggedIn) {
+        <li  class="btns-auth">
+          <span><a routerLink="auth/login" routerLinkActive="active" aria-label="login"  tabindex="0" >Login</a></span>
+          <span><a routerLink="auth/register" routerLinkActive="active" aria-label="register"  tabindex="0" >Register</a></span>
+        </li>
+      }
     </ul>
   </nav>
   
