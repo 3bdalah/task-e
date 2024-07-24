@@ -16,7 +16,7 @@ This project is designed with performance, accessibility, and user experience in
     - Ensured the application is accessible for all users, focusing on ease of use.
 
 3. **Backend Server**
-    - Created a backend server using Node.js and Express to handle various tasks and challenges to create account and login .
+    - Created a backend server using Node.js and Express to handle auth and challenges to create account and login .
 
 4. **Guard for Favorite List**
     - Implemented a guard to restrict access to the favorite list.

@@ -13,42 +13,54 @@
             class="movie-poster"
           />
         </div>
-        <div class="movie-info">
-    
-          <p>
-            <strong>Release Date:</strong>
-            {{ movieAllDetailes.release_date }}
-          </p>
-          <div class="categories">
-            
-          </div>
-          <p>
-            <strong>Overview:</strong>
-            {{ movieAllDetailes.overview }}
-          </p>
-          
-        </div>
-        <button (click)="toggleFavorite()">
-          {{ isFavorite() ? 'Remove from Favorites' : 'Add to Favorites' }}
-        </button>
+        
+        
       </div>
     
       <div>
-        <h3>Comments</h3>
-        <div *ngFor="let comment of comments; let i = index">
-          <p>{{ comment.text }}</p>
-          <small>{{ comment.date | date:'short' }}</small>
-          <div *ngIf="comment.replies">
-            <div *ngFor="let reply of comment.replies">
-              <p style="margin-left: 20px;">{{ reply.text }}</p>
-              <small style="margin-left: 20px;">{{ reply.date | date:'short' }}</small>
+        <button (click)="toggleFavorite()" class="btn-fav" [ngClass]="isFavorite()?'fav':''">
+            {{ isFavorite() ? 'Remove from Favorites' : 'Add to Favorites' }}
+          </button>
+
+          <div class="movie-info">
+    
+            <p>
+              <strong>Release Date:</strong>
+              {{ movieAllDetailes.release_date }}
+            </p>
+            <div class="categories">
+              
             </div>
+            <p>
+              <strong>Overview:</strong>
+              {{ movieAllDetailes.overview }}
+            </p>
+            
           </div>
-          <textarea [(ngModel)]="newReplies[i]" placeholder="Reply to this comment"></textarea>
-          <button (click)="addReply(i)">Reply</button>
+        <h3>Comments</h3>
+        <div class="comments" *ngFor="let comment of comments; let i = index">
+          <p>{{ comment.text }}</p>
+          <!-- <small>{{ comment.date | date:'short' }}</small> -->
+          @if (comment.replies) {
+            <div>
+                @for (reply of comment.replies; track $index) {
+                    <div class="reply-body">
+                      <p style="margin-left: 20px;">{{ reply.text }}</p>
+                      <!-- <span style="margin-left: 20px;">{{ reply.date | date:'short' }}</span> -->
+                    </div>
+                }
+              </div>
+          }
+          <div class="reply">
+            
+          <textarea [(ngModel)]="newReplies[i]" class="input-reply" placeholder="reply"></textarea>
+          <button (click)="addReply(i)" class="btn-reply">Reply</button>
+          </div>
         </div>
-        <textarea [(ngModel)]="newComment" placeholder="Add a comment"></textarea>
+        <div class="comment-input">
+            <textarea [(ngModel)]="newComment" placeholder="Add a comment" class="input"></textarea>
         <button (click)="addComment()">Add Comment</button>
+        </div>
       </div>
    }
 
