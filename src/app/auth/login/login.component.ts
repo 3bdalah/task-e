@@ -36,12 +36,9 @@ export class LoginComponent {
   onSubmit(loginForm: FormGroup) {
     this.isLoading = true;
     if (loginForm.valid) {
-      console.log(loginForm.value);
       const { email, password } = loginForm.value;
       this.authServ.login({ email, password }).subscribe(
         (res) => {
-          console.log('respong login', res);
-
           if (res.message === 'Login Success') {
             this.router.navigate(['/']);
             localStorage.setItem('user', 'active');
