@@ -8,7 +8,7 @@
   </div>
  @if(!isLoading){
   <div class="container">
-    <div class="card-movie" *ngFor="let movieDataformList of moviesList">
+    <div class="card-movie" tabindex="0" *ngFor="let movieDataformList of moviesList">
       <app-movie-card [movie]="movieDataformList"></app-movie-card>
     </div> 
   </div>
