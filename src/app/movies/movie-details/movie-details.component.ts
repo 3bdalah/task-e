@@ -11,6 +11,7 @@ import { MoviesService } from '../service/movies.service';
   styleUrl: './movie-details.component.css'
 })
 export class MovieDetailsComponent {
+  isLoading:Boolean=false;
   movieAllDetailes!: Movie;
   moveiId!: number;
   comments: any[] = [];
@@ -20,12 +21,14 @@ constructor(private router:Router,private  _ActivateRoute:ActivatedRoute,private
   private commentService: CommentsService){}
   ngOnInit(){
     const id = this._ActivateRoute.snapshot.params['id'];
-
+     this.isLoading = true;
     this._ActivateRoute.params.subscribe((params) => { this.moveiId = params['id'];
       this.fullyDataMovie
         .getfullyDataMovie(this.moveiId)
-        .subscribe((dataMovie) => {  this.movieAllDetailes = dataMovie;});
-        console.log("all data about mmovie ", this.movieAllDetailes);
+        .subscribe((dataMovie) => {  this.movieAllDetailes = dataMovie;
+          this.isLoading = false;
+        });
+        // console.log("all data about mmovie ", this.movieAllDetailes);
       });
       this.loadComments(id);
   

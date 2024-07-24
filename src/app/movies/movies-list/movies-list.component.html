@@ -6,8 +6,14 @@
       <option value="now_playing">Now Playing</option>
     </select>
   </div>
+ @if(!isLoading){
   <div class="container">
     <div class="card-movie" *ngFor="let movieDataformList of moviesList">
       <app-movie-card [movie]="movieDataformList"></app-movie-card>
     </div> 
   </div>
+ }
+  @if (isLoading) {
+    <h3 class="loading">Loading</h3>
+   }
+    

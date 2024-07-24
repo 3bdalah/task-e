@@ -9,18 +9,17 @@ import { MoviesService } from '../service/movies.service';
 })
 export class MoviesListComponent {
   moviesList:Movie[] = [];
+  isLoading:Boolean= false;
   constructor(private movies:MoviesService){};
 ngOnInit() {
-  // console.log("movies list");
-  
     this.loadMovies('popular');
-
 }
 loadMovies(category: string) {
+  this.isLoading = true;
   this.movies.getMovies(category).subscribe(data => {
     
     this.moviesList = data.results;
-    // console.log("movies" , this.movies);
+    this.isLoading = false;
   });
 }
 

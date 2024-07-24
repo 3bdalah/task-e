@@ -1,0 +1,40 @@
+/* Container to hold the cards */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+
+  .card-movie {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 15%; /* Each card takes up roughly a third of the container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin-bottom: 1rem;
+    height:500px;
+    
+  }
+  
+  
+  .card-movie:hover {
+    transform: translateY(-5px);
+  }
+  
+  @media (max-width: 768px) {
+    .card-movie {
+      width: 48%; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-movie {
+      width: 100%; 
+    }
+  }
+  

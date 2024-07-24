@@ -1,55 +1,61 @@
 <div class="movie-details">
+   @if (!isLoading) {
     <div class="movie-header">
-      <h2 class="title-movie">{{movieAllDetailes.title}}</h2>
-    </div>
-  
-  
-    <div class="movie-content">
-      <div class="box-img">
-        <img
-          [src]="'https://image.tmdb.org/t/p/original/' + movieAllDetailes.poster_path"
-          alt="Movie Poster"
-          class="movie-poster"
-        />
+        <h2 class="title-movie">{{movieAllDetailes.title}}</h2>
       </div>
-      <div class="movie-info">
-  
-        <p>
-          <strong>Release Date:</strong>
-          {{ movieAllDetailes.release_date }}
-        </p>
-        <div class="categories">
+    
+    
+      <div class="movie-content">
+        <div class="box-img">
+          <img
+            [src]="'https://image.tmdb.org/t/p/original/' + movieAllDetailes.poster_path"
+            alt="Movie Poster"
+            class="movie-poster"
+          />
+        </div>
+        <div class="movie-info">
+    
+          <p>
+            <strong>Release Date:</strong>
+            {{ movieAllDetailes.release_date }}
+          </p>
+          <div class="categories">
+            
+          </div>
+          <p>
+            <strong>Overview:</strong>
+            {{ movieAllDetailes.overview }}
+          </p>
           
         </div>
-        <p>
-          <strong>Overview:</strong>
-          {{ movieAllDetailes.overview }}
-        </p>
-        
+        <button (click)="toggleFavorite()">
+          {{ isFavorite() ? 'Remove from Favorites' : 'Add to Favorites' }}
+        </button>
       </div>
-      <button (click)="toggleFavorite()">
-        {{ isFavorite() ? 'Remove from Favorites' : 'Add to Favorites' }}
-      </button>
-    </div>
-  
-    <div>
-      <h3>Comments</h3>
-      <div *ngFor="let comment of comments; let i = index">
-        <p>{{ comment.text }}</p>
-        <small>{{ comment.date | date:'short' }}</small>
-        <div *ngIf="comment.replies">
-          <div *ngFor="let reply of comment.replies">
-            <p style="margin-left: 20px;">{{ reply.text }}</p>
-            <small style="margin-left: 20px;">{{ reply.date | date:'short' }}</small>
-          </div>
-        </div>
-        <textarea [(ngModel)]="newReplies[i]" placeholder="Reply to this comment"></textarea>
-        <button (click)="addReply(i)">Reply</button>
-      </div>
-      <textarea [(ngModel)]="newComment" placeholder="Add a comment"></textarea>
-      <button (click)="addComment()">Add Comment</button>
-    </div>
     
-  </div>
-  
+      <div>
+        <h3>Comments</h3>
+        <div *ngFor="let comment of comments; let i = index">
+          <p>{{ comment.text }}</p>
+          <small>{{ comment.date | date:'short' }}</small>
+          <div *ngIf="comment.replies">
+            <div *ngFor="let reply of comment.replies">
+              <p style="margin-left: 20px;">{{ reply.text }}</p>
+              <small style="margin-left: 20px;">{{ reply.date | date:'short' }}</small>
+            </div>
+          </div>
+          <textarea [(ngModel)]="newReplies[i]" placeholder="Reply to this comment"></textarea>
+          <button (click)="addReply(i)">Reply</button>
+        </div>
+        <textarea [(ngModel)]="newComment" placeholder="Add a comment"></textarea>
+        <button (click)="addComment()">Add Comment</button>
+      </div>
+   }
+
+</div>
+
+@if (isLoading) {
+ <h3 class="loading">Loading</h3>
+}
+ 
   

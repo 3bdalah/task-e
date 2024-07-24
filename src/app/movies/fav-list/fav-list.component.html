@@ -1,1 +1,5 @@
-<p>fav-list works!</p>
+<div class="container">
+    <div class="card-movie" *ngFor="let movieDataformList of movies">
+      <app-movie-card [movie]="movieDataformList"></app-movie-card>
+    </div> 
+  </div>
