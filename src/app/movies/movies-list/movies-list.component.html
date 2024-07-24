@@ -8,9 +8,11 @@
   </div>
  @if(!isLoading){
   <div class="container">
-    <div class="card-movie" tabindex="0" *ngFor="let movieDataformList of moviesList">
-      <app-movie-card [movie]="movieDataformList"></app-movie-card>
-    </div> 
+    @for (movieDataformList of moviesList; track $index) {
+      <div class="card-movie" tabindex="0" >
+        <app-movie-card [movie]="movieDataformList"></app-movie-card>
+      </div> 
+    }
   </div>
  }
   @if (isLoading) {

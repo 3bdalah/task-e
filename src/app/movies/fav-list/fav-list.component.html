@@ -1,5 +1,17 @@
 <div class="container">
-    <div class="card-movie" *ngFor="let movieDataformList of movies">
+    <!-- <div class="card-movie" *ngFor="let movieDataformList of movies">
       <app-movie-card [movie]="movieDataformList"></app-movie-card>
-    </div> 
+    </div> -->
+      @if (!isLoading) {
+        @for (movieDataformList of movies; track $index) {
+            <div class="card-movie" tabindex="0" >
+              <app-movie-card [movie]="movieDataformList"></app-movie-card>
+            </div> 
+          } 
+    
+      }
+      @if (isLoading) {
+        <h3 class="loading">Loading</h3>
+       }
+        
   </div>

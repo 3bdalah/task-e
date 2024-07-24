@@ -9,9 +9,11 @@ import { FavoritsService } from '../service/favorits.service';
 })
 export class FavListComponent {
   movies:Movie[] =[];
+  isLoading:Boolean=false;
   constructor(private favoriteService:FavoritsService){};
   ngOnInit():void{
-    this.movies =this.favoriteService.getFavorites();
-    console.log("this movie favorists",this.movies);
+    this.isLoading=true;
+    this.movies = this.favoriteService.getFavorites();
+    this.isLoading=false;
   }
 }
