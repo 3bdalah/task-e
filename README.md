@@ -1,5 +1,7 @@
 # Movies
 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+
 ## Overview
 
 This project is designed with performance, accessibility, and user experience in mind. It leverages modern frontend and backend technologies to deliver a robust and scalable application.
@@ -42,9 +44,6 @@ This project is designed with performance, accessibility, and user experience in
 3. Explore the features like adding items to the favorite list, adding comments, etc.
 4. If you encounter a not found page, it indicates an invalid route.
 
-## UI Style Guide
-
-Follow the provided UI style guide to ensure consistency in design and user experience.
 
 ## Hosting
 
@@ -57,11 +56,6 @@ If you wish to contribute to this project, please fork the repository and submit
 ## License
 
 This project is licensed under the MIT License.
-
-
-# Movies
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
 
 ## Development server
 
