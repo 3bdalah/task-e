@@ -6,6 +6,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This project is designed with performance, accessibility, and user experience in mind. It leverages modern frontend and backend technologies to deliver a robust and scalable application.
 
+
+## Account To Test
+    - email : test@gmail.com
+    - password: Test1!11
+
+
 ## Features
 
 1. **Module Structure and Lazy Loading**
@@ -33,10 +39,6 @@ This project is designed with performance, accessibility, and user experience in
 
 8. **Local Storage**
     - Implemented local storage for saving favorites and comments.
-
-## Account To Test
-    - email : test@gmail.com
-    - password: Test1!11
 
 ## Usage
 
