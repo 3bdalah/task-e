@@ -11,8 +11,10 @@
       formControlName="email"
       id="email"
       class="form-control"
-      type="text"
+      type="email"
+      aria-label="Enter your email address"
       placeholder="Email"
+      required
     />
 
     @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
@@ -33,6 +35,8 @@
       class="form-control"
       type="password"
       placeholder="Password"
+      aria-label="Enter your password"
+      required
     />
     <div>
       @if (loginForm.get('password')?.errors &&
@@ -45,13 +49,11 @@
         }
       </div>
       }
-      <!-- <div *ngIf="loginForm.get('password')?.errors?.['required']" class="alert alert-danger py-1">Password is required</div>
-       <div *ngIf="loginForm.get('password')?.errors?.['pattern']" class="alert alert-danger py-1">Password not valid</div> -->
-    </div>
+      </div>
   </div>
 
   @if(!isLoading){
-  <button [disabled]="loginForm.invalid" type="submit" class="btn-submit">
+  <button [disabled]="loginForm.invalid" type="submit"  aria-label="Login button" class="btn-submit">
     login
   </button>
   } @if(isLoading){
