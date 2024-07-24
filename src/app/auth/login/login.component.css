@@ -1,7 +1,7 @@
 .form-register{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 80%;
     justify-content: center;
     height: 300px;
     justify-items: center;
@@ -15,7 +15,7 @@
     height:60px;
     display: flex;
     
-    width:80%;
+    width:90%;
     flex-direction: column;
 }
 .box-input input{
