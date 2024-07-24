@@ -13,7 +13,7 @@ import { AuthService } from '../service/auth.service';
   ]
 })
 export class RegisterComponent {
-// registerForm: FormGroup;
+isLoading:boolean= false;
 errorMessage: string = '';
 
 constructor(
@@ -32,7 +32,7 @@ constructor(
 
 registerForm: FormGroup = new FormGroup(
   {
-    name: new FormControl(null,[Validators.required]),
+    name: new FormControl(null,[Validators.required,Validators.minLength(5)]),
     email: new FormControl(null, [Validators.email, Validators.required]),
     password: new FormControl(null, [
       Validators.required,
@@ -50,7 +50,7 @@ passwordMatchValidator(form: FormGroup) {
 
 
 onSubmit(registerForm: FormGroup) {
-  // this.isLoading = true;
+  this.isLoading = true;
   if (registerForm.valid) {
     console.log(registerForm.value);
     const {name,email,password} = registerForm.value;
@@ -59,6 +59,13 @@ onSubmit(registerForm: FormGroup) {
           console.log("res",res);
           if(res.message==="Register Success"){
             this.router.navigate(['auth/login']);
+          }
+        },(error)=>{
+          if (error.status === 400 && error.error && error.error.message) {
+            alert('failed register password or email or name have error ');
+            this.errorMessage = error.error.message;
+            this.isLoading = false;
+            // registerForm.reset();
           }
         })
       }

@@ -4,31 +4,48 @@
     <div class="box-input">
       <label for="name">name:</label>
       <input formControlName="name" class="form-control" type="text" placeholder="name" />
-      <!-- <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched">
-        <div *ngIf="registerForm.get('name')?.getError('required')" class="error">name is required</div>
-        <div *ngIf="registerForm.get('name')?.getError('minLength')" class="error"> Length must be more 3</div>
-      </div> -->
+
+      @if (registerForm.get('name')?.errors && registerForm.get('name')?.touched) {
+        <div>
+          @if (registerForm.get('name')?.getError('required')){
+          <p class="error">name is required</p>
+          } @if (registerForm.get('name')?.getError('minlength')){
+          <p class="error">Min length you must 5 char</p>
+          }
+        </div>
+        }
+      
     </div>
 
     <div class="box-input">
       <label for="email">Email</label>
       <input formControlName="email" class="form-control" type="text" placeholder="Email" />
-      <!-- <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
-        <div *ngIf="registerForm.get('email')?.errors?.['required']" class="error">Email is required</div>
-        <div *ngIf="registerForm.get('email')?.errors?.['email']"class="error" >Email is not valid</div>
-      </div> -->
+      @if (registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
+        <div>
+          @if (registerForm.get('email')?.getError('required')){
+          <p class="error">email is required</p>
+          } @if (registerForm.get('email')?.getError('email')){
+          <p class="error">email not valid email</p>
+          }
+        </div>
+        }
     </div>
     <div class="box-input">
   <label for="password">password</label>
   <input formControlName="password" class="form-control" type="text" placeholder="password" />
-<!-- <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
-  <div *ngIf="registerForm.get('password')?.errors?.['required']" class="error">password is required</div>
-  <div *ngIf="registerForm.get('password')?.errors?.['pattern']" class="error">password is not valid you should uppercase and lowercase like this: A123456a!</div>
-</div>
-    </div> -->
 
-    <button class="btn-submit" type="submit" [disabled]="registerForm.invalid">Register</button>
-    <!-- <div *ngIf="errorMessage">
-      <p>{{ errorMessage }}</p>-->
+
+  @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+    <div>
+      @if (registerForm.get('password')?.getError('required')){
+      <p class="error">phone is required</p>
+      } @if (registerForm.get('password')?.getError('pattern')){
+      <p class="error">passord not valid password you must like : Ahmed12!</p>
+      }
     </div>
+    }
+  </div>
+  <button class="btn-submit"   type="submit" [disabled]="registerForm.invalid">
+    Register
+  </button>
 </form>

@@ -1,28 +1,60 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" class="form-register">
-    <div *ngIf="errorMessage" class="alert alert-danger py-4">Error try again</div>
-    <h2 class="text-center pb-3 mb-3">Create account</h2>
-  
-    <div class="box-input">
-      <label for="email">Email</label>
-    <input formControlName="email" id="email" class="form-control" type="text" placeholder="Email" />
-    <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
-      <div *ngIf="loginForm.get('email')?.errors?.['required']" class="alert alert-danger py-1">Email is required</div>
-      <div *ngIf="loginForm.get('email')?.errors?.['email']" class="alert alert-danger py-1">Email is not valid</div>
+<form
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit(loginForm)"
+  class="form-register"
+>
+  <h2 class="">Login</h2>
+
+  <div class="box-input">
+    <label for="email">Email</label>
+    <input
+      formControlName="email"
+      id="email"
+      class="form-control"
+      type="text"
+      placeholder="Email"
+    />
+
+    @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
+    <div>
+      @if (loginForm.get('email')?.getError('required')){
+      <p class="error">phone is required</p>
+      } @if (loginForm.get('email')?.getError('email')){
+      <p class="error">email not valid email</p>
+      }
     </div>
+    }
+  </div>
+  <div class="box-input">
+    <label for="password">password</label>
+    <input
+      formControlName="password"
+      id="password"
+      class="form-control"
+      type="password"
+      placeholder="Password"
+    />
+    <div>
+      @if (loginForm.get('password')?.errors &&
+      loginForm.get('password')?.touched) {
+      <div>
+        @if (loginForm.get('password')?.getError('required')){
+        <p class="error">password required</p>
+        } @if (loginForm.get('password')?.getError('pattern')){
+        <p class="error">example password valid : Ahmed!123</p>
+        }
+      </div>
+      }
+      <!-- <div *ngIf="loginForm.get('password')?.errors?.['required']" class="alert alert-danger py-1">Password is required</div>
+       <div *ngIf="loginForm.get('password')?.errors?.['pattern']" class="alert alert-danger py-1">Password not valid</div> -->
     </div>
-    <div class="box-input">
-      <label for="password">password</label>
-     <input formControlName="password" id="password" class="form-control" type="password" placeholder="Password" />
-     <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
-       <div *ngIf="loginForm.get('password')?.errors?.['required']" class="alert alert-danger py-1">Password is required</div>
-       <div *ngIf="loginForm.get('password')?.errors?.['pattern']" class="alert alert-danger py-1">Password not valid</div>
-     </div>
-    </div>
-  
-  
-  
-    <button  [disabled]="loginForm.invalid" type="submit" class="btn-submit">
-      login
-    </button>
-  </form>
-  
+  </div>
+
+  @if(!isLoading){
+  <button [disabled]="loginForm.invalid" type="submit" class="btn-submit">
+    login
+  </button>
+  } @if(isLoading){
+  <h5 class="loading">Loading</h5>
+  }
+</form>

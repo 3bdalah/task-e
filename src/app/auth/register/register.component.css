@@ -8,6 +8,7 @@
     margin: 8% auto;
     background-color: #eeeeee;
     align-items: center;
+    border-radius:10px;
 }
 .box-input{
     margin-top: 20px;
@@ -24,7 +25,10 @@
 }
 .btn-submit{
     width: 200px;
-    height:40px;
+    /* height:40px;
+     */
+     padding:10px;
+     
     margin-top: 10px;
 }
 .error{
